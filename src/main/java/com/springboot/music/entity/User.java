@@ -14,14 +14,20 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name="name")
     private String name;
-    @Column(nullable = false, unique = true)
+
+    @Column(name="username",nullable = false, unique = true)
     private String username;
-    @Column(nullable = false, unique = true)
+
+    @Column(name="email",nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
+
+    @Column(name="password", nullable = false)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
